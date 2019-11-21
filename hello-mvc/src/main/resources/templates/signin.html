@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8">
+<title>sign in</title>
+</head>
+<body>
+<form th:action="@{/connexion}" th:object="${user}" method="post">
+user : <input th:field="*{nom}" id="nom" name="nom"><br>
+pswd : <input th:field="*{password}" id="password" name = "password" type="password"><br>
+<button>Connexion</button>
+</form>
+</body>
+</html>
