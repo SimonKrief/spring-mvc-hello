@@ -15,10 +15,10 @@ class HelloMvcApplicationTests {
 	void contextLoads() {
 	assertNotNull(dao);
 	}
-	@Test
-	void getUserByNom() {	
-		assertNotNull(dao.getByNom("gaston"));
-	}
+//	@Test
+//	void getUserByNom() {	
+//		assertNotNull(dao.getByNom("gaston"));
+//	}
 	@Test
 	void trouverUserNative() {	
 		String str = dao.trouverUserNative();

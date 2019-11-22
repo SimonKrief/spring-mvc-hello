@@ -67,6 +67,7 @@ public class DemoController {
 			//recupération du hash en base correspondant au nom 
 			String hashedQueryUserPwStr = dao.trouverUserNativeParam(user.getNom());
 			if (hashedUserPwStr.equals(hashedQueryUserPwStr)) {
+				//ajout au model pour dire bonjour à user.
 				model.addAttribute("user", user);
 				return "ok";
 			} else {
