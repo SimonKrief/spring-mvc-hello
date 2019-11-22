@@ -20,9 +20,10 @@ class HelloMvcApplicationTests {
 		assertNotNull(dao.getByNom("gaston"));
 	}
 	@Test
-	void testNative() {	
+	void trouverUserNative() {	
 		String str = dao.trouverUserNative();
 		assertTrue(str.length()>0);
+		assertTrue(str.equals("96202ba172c88b16bcdd26ba1a2184283d5fefd12252b280b2f1257c3c0aa254"));
 		System.out.println(str);
 	}
 	@Test
@@ -30,7 +31,7 @@ class HelloMvcApplicationTests {
 		String user = "gaston";
 		String str  = dao.trouverUserNativeParam(user);
 		assertTrue(str.length()>0);
-
+		assertTrue(str.equals("96202ba172c88b16bcdd26ba1a2184283d5fefd12252b280b2f1257c3c0aa254"));
 		System.out.println(str);
 
 	}

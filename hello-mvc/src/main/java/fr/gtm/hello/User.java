@@ -22,10 +22,6 @@ public class User {
 	@Column(name = "role")
 	private String roles;
 	
-//	final String nom = "gaston";
-//	@Query(value = "SELECT u.sha256 FROM USERS u WHERE u.user = "+"\'"+nom+"\'", nativeQuery = true)
-//	abstract String trouverUserNative();
-
 	
 	public long getId() {
 		return id;
