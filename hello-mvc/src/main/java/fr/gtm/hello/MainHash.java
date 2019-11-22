@@ -23,10 +23,12 @@ public class MainHash {
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
 		byte[] bytes = md.digest(passwordToHash.getBytes());
 		BigInteger bi = new BigInteger(1,bytes);
-		
+		StringBuilder sb = new StringBuilder(bi.toString(16));
+		for(int i = 64 ; i>sb.length(); i--) {
+			sb.insert(0, "0");
+		}
 		System.out.println(bytes);
-
-		return bi.toString();
+		return sb.toString();
 	}
 	
 	public static void hashToString(String passwordToHash) {

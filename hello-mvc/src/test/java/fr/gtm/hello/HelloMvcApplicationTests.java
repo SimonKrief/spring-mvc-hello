@@ -11,30 +11,47 @@ import org.springframework.boot.test.context.SpringBootTest;
 class HelloMvcApplicationTests {
 	@Autowired
 	ClientDao dao;
+
 	@Test
 	void contextLoads() {
-	assertNotNull(dao);
+		assertNotNull(dao);
 	}
+
 //	@Test
 //	void getUserByNom() {	
 //		assertNotNull(dao.getByNom("gaston"));
 //	}
 	@Test
-	void trouverUserNative() {	
+	void trouverUserNative() {
 		String str = dao.trouverUserNative();
-		assertTrue(str.length()>0);
+		assertTrue(str.length() > 0);
 		assertTrue(str.equals("96202ba172c88b16bcdd26ba1a2184283d5fefd12252b280b2f1257c3c0aa254"));
 		System.out.println(str);
 	}
+
 	@Test
 	void trouverUserNativeParam() {
 		String user = "gaston";
-		String str  = dao.trouverUserNativeParam(user);
-		assertTrue(str.length()>0);
+		String str = dao.trouverUserNativeParam(user);
+		assertTrue(str.length() > 0);
 		assertTrue(str.equals("96202ba172c88b16bcdd26ba1a2184283d5fefd12252b280b2f1257c3c0aa254"));
 		System.out.println(str);
+	}
+
+	@Test
+	void testEnregistrerUser() {
+		int n = dao.findAll().size();
+		dao.testEnregistrerUser();
+		assertTrue(n + 1 == dao.findAll().size());
 
 	}
-	
+
+	@Test
+	void enregistrerUser() {
+		int n = dao.findAll().size();
+		dao.enregistrerUser("user", "password", "role", "sha");
+		assertTrue(n + 1 == dao.findAll().size());
+
+	}
 
 }

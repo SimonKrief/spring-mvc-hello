@@ -79,6 +79,9 @@ public class DemoController {
 		}
 	}
 	
+
+	
+	
 	
 	public static String hashToString(String passwordToHash) {
 		String generatedPassword = null;
@@ -105,6 +108,30 @@ public class DemoController {
 	}
 	
 
+	/*********************************************/
 	
+	@GetMapping("/signup")
+	public String signup() {
+		//user-enregistre Model as arg
+//		User user = new User();
+//		model.addAttribute("user", user);
+		return "signup";
+	}
+	
+	@PostMapping("/enregistrement")
+	public String connexionHash(@RequestParam(name ="password") String pw,  
+								@RequestParam(name ="user") String u,
+								@RequestParam(name = "role") String r, Model model) {
+
+		String hash = hashToString(pw);
+		try {
+			dao.enregistrerUser(u, pw, r, hash);
+		} catch (Exception e) {
+			LOG.info("echec de l'enregistrement");
+		}
+
+		return "user-enregistre";
+
+	}
 
 }

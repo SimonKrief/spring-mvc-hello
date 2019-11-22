@@ -5,13 +5,13 @@
 <title>sign in</title>
 </head>
 <body>
-<form th:action="@{/connexion}" th:object="${user}" method="post">
-user : <input th:field="*{nom}" id="nom" name="nom"><br>
-<!-- pswd : <input th:field="*{password}" id="password" name = "password" type="password"><br> -->
-<!-- on récupère directement le pw avec un @RequestParam sans utiliser l'objet user -->
-pswd : <input id="password" name = "password" type="password"><br>
+	<form th:action="@{/connexion}" th:object="${user}" method="post">
+		user : <input th:field="*{nom}" id="nom" name="nom"><br>
+		<!-- pswd : <input th:field="*{password}" id="password" name = "password" type="password"><br> -->
+		<!-- on récupère directement le pw avec un @RequestParam sans utiliser l'objet user -->
+		pswd : <input id="password" name="password" type="password"><br>
 
-<button>Connexion</button>
-</form>
+		<button>Connexion</button>
+	</form>
 </body>
 </html>
